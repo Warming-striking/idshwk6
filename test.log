@@ -1,0 +1,190 @@
+root@debian:/opt# date
+2022年 05月 15日 星期日 14:28:25 CST
+
+--------------------------------------------------------
+root@debian:/opt# cat /etc/issue
+Debian GNU/Linux 11 \n \l
+-------------------------------------------------
+root@debian:/opt# uname -a
+Linux debian 5.10.0-12-amd64 #1 SMP Debian 5.10.103-1 (2022-03-07) x86_64 GNU/Linux
+---------------------------------root@debian:/opt# cat /proc/meminfo
+MemTotal:        3059664 kB
+MemFree:          248704 kB
+MemAvailable:    1191468 kB
+Buffers:           47824 kB
+Cached:          1010364 kB
+SwapCached:       269384 kB
+Active:           843548 kB
+Inactive:        1636136 kB
+Active(anon):     206636 kB
+Inactive(anon):  1224540 kB
+Active(file):     636912 kB
+Inactive(file):   411596 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:        998396 kB
+SwapFree:         116588 kB
+Dirty:               588 kB
+Writeback:             0 kB
+AnonPages:       1143736 kB
+Mapped:           327948 kB
+Shmem:              9680 kB
+KReclaimable:      59692 kB
+Slab:             102668 kB
+SReclaimable:      59692 kB
+SUnreclaim:        42976 kB
+KernelStack:        7232 kB
+PageTables:        17908 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2528228 kB
+Committed_AS:    5192604 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       38976 kB
+VmallocChunk:          0 kB
+Percpu:              880 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    856064 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      227264 kB
+DirectMap2M:     2918400 kB
+---------------------------------------------------
+root@debian:/opt# cat /proc/cpuinfo
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 126
+model name	: Intel(R) Core(TM) i7-1065G7 CPU @ 1.30GHz
+stepping	: 5
+cpu MHz		: 1497.599
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq monitor ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single fsgsbase avx2 invpcid rdseed clflushopt md_clear flush_l1d arch_capabilities
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs itlb_multihit
+bogomips	: 2995.19
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+---------------------------------------------------------------
+root@debian:/opt# uptime
+ 14:30:58 up 15:25,  1 user,  load average: 0.17, 0.11, 0.10
+ ----------------------------------------------------------------------
+ root@debian:/opt# df -h
+文件系统        容量  已用  可用 已用% 挂载点
+udev            1.5G     0  1.5G    0% /dev
+tmpfs           299M  1.2M  298M    1% /run
+/dev/sda1       6.9G  5.9G  646M   91% /
+tmpfs           1.5G     0  1.5G    0% /dev/shm
+tmpfs           5.0M  4.0K  5.0M    1% /run/lock
+tmpfs           299M  128K  299M    1% /run/user/1000
+/dev/sr0         59M   59M     0  100% /media/cdrom0
+---------------------------------------------------------------------
+root@debian:/opt# sudo ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::a00:27ff:fe36:e165  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:36:e1:65  txqueuelen 1000  (Ethernet)
+        RX packets 277308  bytes 365491922 (348.5 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 39659  bytes 4300189 (4.1 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 167  bytes 14377 (14.0 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 167  bytes 14377 (14.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+  ------------------------------------------------------------------------
+  root@debian:/opt# netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         10.0.2.2        0.0.0.0         UG        0 0          0 enp0s3
+10.0.2.0        0.0.0.0         255.255.255.0   U         0 0          0 enp0s3
+169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 enp0s3
+------------------------------------------------------------------------
+root@debian:/opt# sudo arp -a
+_gateway (10.0.2.2) at 52:54:00:12:35:02 [ether] on enp0s3
+-----------------------------------------------------------------------
+root@debian:/opt# ps -l
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0   71413   71410  0  80   0 -  2551 -      pts/0    00:00:00 su
+4 S     0   71414   71413  0  80   0 -  1828 -      pts/0    00:00:00 bash
+4 R     0   71468   71414  0  80   0 -  2462 -      pts/0    00:00:00 ps
+root@debian:/opt# ps
+    PID TTY          TIME CMD
+  71413 pts/0    00:00:00 su
+  71414 pts/0    00:00:00 bash
+  71469 pts/0    00:00:00 ps
+-----------------------------------------------------------------------
+root@debian:~# service --status-all
+ [ - ]  alsa-utils
+ [ - ]  anacron
+ [ + ]  apparmor
+ [ + ]  avahi-daemon
+ [ - ]  bluetooth
+ [ - ]  bootlogs
+ [ - ]  bootmisc.sh
+ [ - ]  brightness
+ [ - ]  checkfs.sh
+ [ - ]  checkroot-bootclean.sh
+ [ - ]  checkroot.sh
+ [ - ]  console-setup.sh
+ [ + ]  cron
+ [ + ]  dbus
+ [ + ]  gdm3
+ [ - ]  hostname.sh
+ [ - ]  hwclock.sh
+ [ - ]  keyboard-setup.sh
+ [ - ]  killprocs
+ [ + ]  kmod
+ [ ? ]  mount-configfs
+ [ - ]  mountall-bootclean.sh
+ [ - ]  mountall.sh
+ [ - ]  mountdevsubfs.sh
+ [ - ]  mountkernfs.sh
+ [ - ]  mountnfs-bootclean.sh
+ [ - ]  mountnfs.sh
+ [ + ]  networking
+ [ - ]  plymouth
+ [ + ]  plymouth-log
+ [ + ]  procps
+ [ - ]  pulseaudio-enable-autospawn
+ [ - ]  rc.local
+ [ - ]  rmnologin
+ [ + ]  rsyslog
+ [ - ]  saned
+ [ - ]  sendsigs
+ [ - ]  snort
+ [ - ]  speech-dispatcher
+ [ - ]  sudo
+ [ + ]  udev
+ [ - ]  umountfs
+ [ - ]  umountnfs.sh
+ [ - ]  umountroot
+ [ + ]  unattended-upgrades
+ [ - ]  urandom
+ [ - ]  x11-common
+
